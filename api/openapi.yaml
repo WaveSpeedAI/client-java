@@ -1,0 +1,290 @@
+openapi: 3.0.0
+info:
+  description: API for generating images using WaveSpeed AI
+  title: WaveSpeed AI API
+  version: 0.0.1
+servers:
+- url: https://api.wavespeed.ai/api/v2
+paths:
+  /{model_id}:
+    post:
+      description: |
+        This endpoint generates an image based on the provided parameters.
+        The `model_id` is a required path parameter specifying the model to use.
+        The request body can contain various key-value pairs to customize the model generation process.
+      operationId: createPrediction
+      parameters:
+      - description: The ID of the model to use for image generation
+        explode: false
+        in: path
+        name: model_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The URL to which the webhook will be sent
+        explode: true
+        in: query
+        name: webhook
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: true
+              description: Any key-value pairs to customize the model generation  process
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PredictionResponse'
+          description: Image generation successful
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/createPrediction_400_response'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/createPrediction_401_response'
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/createPrediction_500_response'
+          description: Internal Server Error
+      security:
+      - bearerAuth: []
+      summary: Generate an image using the specified model
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /predictions/{predictionId}/result:
+    get:
+      description: |
+        This endpoint retrieves the result of a prediction based on the provided request ID.
+      operationId: getPrediction
+      parameters:
+      - description: The ID of the prediction request
+        explode: false
+        in: path
+        name: predictionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PredictionResponse'
+          description: Image generation successful
+        "400":
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+          description: Internal Server Error
+      security:
+      - bearerAuth: []
+      summary: Retrieve the result of a prediction
+      x-accepts:
+      - application/json
+components:
+  responses:
+    predictionResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PredictionResponse'
+      description: Image generation successful
+  schemas:
+    createPrediction_500_response:
+      example:
+        code: 5
+        data:
+          error: error
+        message: message
+      properties:
+        code:
+          description: "HTTP status code (e.g., 500 for internal server error)"
+          type: integer
+        message:
+          description: "Status message (e.g., \"Internal Server Error\")"
+          type: string
+        data:
+          $ref: '#/components/schemas/createPrediction_400_response_data'
+      type: object
+    Prediction_urls:
+      example:
+        get: https://openapi-generator.tech
+      properties:
+        get:
+          description: URL to retrieve the prediction result
+          format: uri
+          type: string
+      type: object
+    Prediction:
+      example:
+        outputs:
+        - https://openapi-generator.tech
+        - https://openapi-generator.tech
+        executionTime: 6.027456183070403
+        urls:
+          get: https://openapi-generator.tech
+        has_nsfw_contents:
+        - true
+        - true
+        created_at: 2000-01-23T04:56:07.000+00:00
+        model: model
+        id: id
+        error: error
+        status: created
+      properties:
+        id:
+          description: Unique identifier for the prediction
+          type: string
+        model:
+          description: Model ID used for the prediction
+          type: string
+        outputs:
+          items:
+            description: URLs to the generated content
+            format: uri
+            type: string
+          type: array
+        urls:
+          $ref: '#/components/schemas/Prediction_urls'
+        has_nsfw_contents:
+          items:
+            description: Array of boolean values indicating NSFW detection for each
+              output
+            type: boolean
+          type: array
+        status:
+          description: Status of the task
+          enum:
+          - created
+          - processing
+          - completed
+          - failed
+          type: string
+        created_at:
+          description: ISO timestamp of when the request was created
+          format: date-time
+          type: string
+        error:
+          description: Error message (empty if no error occurred)
+          type: string
+        executionTime:
+          description: model execution time
+          type: number
+      required:
+      - id
+      - status
+      title: Prediction
+      type: object
+    createPrediction_401_response:
+      example:
+        code: 5
+        data:
+          error: error
+        message: message
+      properties:
+        code:
+          description: "HTTP status code (e.g., 401 for unauthorized)"
+          type: integer
+        message:
+          description: "Status message (e.g., \"Unauthorized\")"
+          type: string
+        data:
+          $ref: '#/components/schemas/createPrediction_400_response_data'
+      type: object
+    createPrediction_400_response_data:
+      example:
+        error: error
+      properties:
+        error:
+          description: Error message
+          type: string
+      type: object
+    createPrediction_400_response:
+      example:
+        code: 1
+        data:
+          error: error
+        message: message
+      properties:
+        code:
+          description: "HTTP status code (e.g., 400 for bad request)"
+          type: integer
+        message:
+          description: "Status message (e.g., \"Bad Request\")"
+          type: string
+        data:
+          $ref: '#/components/schemas/createPrediction_400_response_data'
+      type: object
+    PredictionResponse:
+      example:
+        code: 0
+        data:
+          outputs:
+          - https://openapi-generator.tech
+          - https://openapi-generator.tech
+          executionTime: 6.027456183070403
+          urls:
+            get: https://openapi-generator.tech
+          has_nsfw_contents:
+          - true
+          - true
+          created_at: 2000-01-23T04:56:07.000+00:00
+          model: model
+          id: id
+          error: error
+          status: created
+        message: message
+      properties:
+        code:
+          description: "HTTP status code (e.g., 200 for success)"
+          type: integer
+        message:
+          description: "Status message (e.g., \"success\")"
+          type: string
+        data:
+          $ref: '#/components/schemas/Prediction'
+      required:
+      - code
+      - data
+      title: PredictionResponse
+      type: object
+  securitySchemes:
+    bearerAuth:
+      scheme: bearer
+      type: http
+
