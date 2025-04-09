@@ -38,3 +38,11 @@ src/main/java/ai/wavespeed/openapi/client/model/CreatePredictionData500Response.
 src/main/java/ai/wavespeed/openapi/client/model/Prediction.java
 src/main/java/ai/wavespeed/openapi/client/model/PredictionResponse.java
 src/main/java/ai/wavespeed/openapi/client/model/PredictionUrls.java
+src/test/java/ai/wavespeed/openapi/client/api/DefaultApiTest.java
+src/test/java/ai/wavespeed/openapi/client/model/CreatePredictionData400ResponseDataTest.java
+src/test/java/ai/wavespeed/openapi/client/model/CreatePredictionData400ResponseTest.java
+src/test/java/ai/wavespeed/openapi/client/model/CreatePredictionData401ResponseTest.java
+src/test/java/ai/wavespeed/openapi/client/model/CreatePredictionData500ResponseTest.java
+src/test/java/ai/wavespeed/openapi/client/model/PredictionResponseTest.java
+src/test/java/ai/wavespeed/openapi/client/model/PredictionTest.java
+src/test/java/ai/wavespeed/openapi/client/model/PredictionUrlsTest.java

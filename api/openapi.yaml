@@ -35,7 +35,7 @@ paths:
           application/json:
             schema:
               additionalProperties: true
-              description: Any key-value pairs to customize the model generation  process
+              description: Any key-value pairs to customize the model generation process
               type: object
         required: true
       responses:

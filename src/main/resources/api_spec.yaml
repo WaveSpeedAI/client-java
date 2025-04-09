@@ -34,7 +34,7 @@ paths:
             schema:
               type: object
               additionalProperties: true
-              description: Any key-value pairs to customize the model generation  process
+              description: Any key-value pairs to customize the model generation process
       responses:
         '200':
           $ref: '#/components/responses/predictionResponse'
@@ -205,4 +205,3 @@ components:
                 required:
                   - status
                   - id
-

@@ -4,12 +4,33 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <description>Java sdk for WaveSpeed Api</description>
+    <url>https://wavespeed.ai</url>
+
     <groupId>ai.wavespeed.maven</groupId>
     <artifactId>wavespeed-client</artifactId>
     <version>0.0.1</version>
+    <developers>
+        <developer>
+            <name>WaveSpeed</name>
+<!--            <email>hello@wavespeed.ai</email>-->
+        </developer>
+    </developers>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:https://github.com/WaveSpeedAI/client-java.git</connection>
+        <developerConnection>scm:git:https://github.com/WaveSpeedAI/client-java.git</developerConnection>
+        <url>https://github.com/WaveSpeedAI/client-java.git</url>
+    </scm>
 
     <properties>
-        <maven.compiler.source>23</maven.compiler.source>
+        <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gson-fire-version>1.9.0</gson-fire-version>
@@ -114,6 +135,13 @@
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.30</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
             <plugin>

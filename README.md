@@ -39,8 +39,8 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>org.openapitools</groupId>
-  <artifactId>openapi-java-client</artifactId>
+  <groupId>ai.wavespeed.maven</groupId>
+  <artifactId>wavespeed-client</artifactId>
   <version>0.0.1</version>
   <scope>compile</scope>
 </dependency>
@@ -57,7 +57,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:0.0.1"
+     implementation "ai.wavespeed.maven:wavespeed-client:0.0.1"
   }
 ```
 
@@ -71,7 +71,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-0.0.1.jar`
+* `target/wavespeed-client-0.0.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -155,7 +155,7 @@ Authentication schemes defined for the API:
 
 ## Recommendation
 
-It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
+It's recommended to create an instance of `WaveSpeed` per thread in a multithreaded environment to avoid any potential issues.
 
 ## Author
 
