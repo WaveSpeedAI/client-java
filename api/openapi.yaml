@@ -12,7 +12,7 @@ paths:
         This endpoint generates an image based on the provided parameters.
         The `model_id` is a required path parameter specifying the model to use.
         The request body can contain various key-value pairs to customize the model generation process.
-      operationId: createPrediction
+      operationId: createPredictionData
       parameters:
       - description: The ID of the model to use for image generation
         explode: false
@@ -49,19 +49,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/createPrediction_400_response'
+                $ref: '#/components/schemas/createPredictionData_400_response'
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/createPrediction_401_response'
+                $ref: '#/components/schemas/createPredictionData_401_response'
           description: Unauthorized
         "500":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/createPrediction_500_response'
+                $ref: '#/components/schemas/createPredictionData_500_response'
           description: Internal Server Error
       security:
       - bearerAuth: []
@@ -73,7 +73,7 @@ paths:
     get:
       description: |
         This endpoint retrieves the result of a prediction based on the provided request ID.
-      operationId: getPrediction
+      operationId: getPredictionData
       parameters:
       - description: The ID of the prediction request
         explode: false
@@ -125,22 +125,6 @@ components:
             $ref: '#/components/schemas/PredictionResponse'
       description: Image generation successful
   schemas:
-    createPrediction_500_response:
-      example:
-        code: 5
-        data:
-          error: error
-        message: message
-      properties:
-        code:
-          description: "HTTP status code (e.g., 500 for internal server error)"
-          type: integer
-        message:
-          description: "Status message (e.g., \"Internal Server Error\")"
-          type: string
-        data:
-          $ref: '#/components/schemas/createPrediction_400_response_data'
-      type: object
     Prediction_urls:
       example:
         get: https://openapi-generator.tech
@@ -149,6 +133,22 @@ components:
           description: URL to retrieve the prediction result
           format: uri
           type: string
+      type: object
+    createPredictionData_400_response:
+      example:
+        code: 1
+        data:
+          error: error
+        message: message
+      properties:
+        code:
+          description: "HTTP status code (e.g., 400 for bad request)"
+          type: integer
+        message:
+          description: "Status message (e.g., \"Bad Request\")"
+          type: string
+        data:
+          $ref: '#/components/schemas/createPredictionData_400_response_data'
       type: object
     Prediction:
       example:
@@ -196,7 +196,7 @@ components:
           - failed
           type: string
         created_at:
-          description: ISO timestamp of when the request was created
+          description: Timestamp of when the request was created
           format: date-time
           type: string
         error:
@@ -210,7 +210,31 @@ components:
       - status
       title: Prediction
       type: object
-    createPrediction_401_response:
+    createPredictionData_500_response:
+      example:
+        code: 5
+        data:
+          error: error
+        message: message
+      properties:
+        code:
+          description: "HTTP status code (e.g., 500 for internal server error)"
+          type: integer
+        message:
+          description: "Status message (e.g., \"Internal Server Error\")"
+          type: string
+        data:
+          $ref: '#/components/schemas/createPredictionData_400_response_data'
+      type: object
+    createPredictionData_400_response_data:
+      example:
+        error: error
+      properties:
+        error:
+          description: Error message
+          type: string
+      type: object
+    createPredictionData_401_response:
       example:
         code: 5
         data:
@@ -224,31 +248,7 @@ components:
           description: "Status message (e.g., \"Unauthorized\")"
           type: string
         data:
-          $ref: '#/components/schemas/createPrediction_400_response_data'
-      type: object
-    createPrediction_400_response_data:
-      example:
-        error: error
-      properties:
-        error:
-          description: Error message
-          type: string
-      type: object
-    createPrediction_400_response:
-      example:
-        code: 1
-        data:
-          error: error
-        message: message
-      properties:
-        code:
-          description: "HTTP status code (e.g., 400 for bad request)"
-          type: integer
-        message:
-          description: "Status message (e.g., \"Bad Request\")"
-          type: string
-        data:
-          $ref: '#/components/schemas/createPrediction_400_response_data'
+          $ref: '#/components/schemas/createPredictionData_400_response_data'
       type: object
     PredictionResponse:
       example:

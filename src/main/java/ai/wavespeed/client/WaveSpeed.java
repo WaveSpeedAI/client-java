@@ -15,12 +15,12 @@ import java.util.Map;
 @Slf4j
 public class WaveSpeed extends DefaultApi {
 
-    public int pollInterval = 1000;
+    public int pollInterval = 500;
 
     public WaveSpeed() {
         super();
         String apiKey = System.getenv("WAVESPEED_API_KEY");
-        if (apiKey != null) {
+        if (apiKey == null) {
             throw new RuntimeException("Not set WAVESPEED_API_KEY environment variable.");
         }
         getApiClient().setBearerToken(apiKey);
@@ -36,7 +36,7 @@ public class WaveSpeed extends DefaultApi {
     }
 
     public Prediction run(String modelId, Map<String, Object> input, Options options) throws ApiException {
-        PredictionResponse predictionResponse = createPrediction(modelId, input, options.webhookUrl);
+        PredictionResponse predictionResponse = createPredictionData(modelId, input, options.webhookUrl);
         if (predictionResponse.getCode() != 200) {
             throw new ApiException(String.format("Failed : Response error code : %s, message: %s"
                     , predictionResponse.getCode(), predictionResponse.getMessage()));
@@ -48,7 +48,7 @@ public class WaveSpeed extends DefaultApi {
                     prediction.getStatus() != Prediction.StatusEnum.FAILED) {
                 Thread.sleep(pollInterval);
                 log.debug("Polling prediction: {} status: {}", prediction.getId(), prediction.getStatus());
-                predictionResponse = getPrediction(prediction.getId());
+                predictionResponse = getPredictionData(prediction.getId());
                 prediction = predictionResponse.getData();
             }
         } catch (InterruptedException e) {
@@ -62,17 +62,19 @@ public class WaveSpeed extends DefaultApi {
     }
 
     public Prediction create(String id, Map<String, Object> input, Options options) throws ApiException {
-        PredictionResponse predictionResponse = createPrediction(id, input, options.webhookUrl);
+        PredictionResponse predictionResponse = createPredictionData(id, input, options.webhookUrl);
         if (predictionResponse.getCode() != 200) {
-            throw new RuntimeException(String.format("Failed : Response error code : %s, message: %s", predictionResponse.getCode(), predictionResponse.getMessage()));
+            throw new ApiException(String.format("Failed : Response error code : %s, message: %s",
+                    predictionResponse.getCode(), predictionResponse.getMessage()));
         }
         return predictionResponse.getData();
     }
 
-    public Prediction get(String predictionId) throws ApiException {
-        PredictionResponse predictionResponse = getPrediction(predictionId);
+    public Prediction getPrediction(String predictionId) throws ApiException {
+        PredictionResponse predictionResponse = getPredictionData(predictionId);
         if (predictionResponse.getCode() != 200) {
-            throw new ApiException(String.format("Failed : Response error code : %s, message: %s", predictionResponse.getCode(), predictionResponse.getMessage()));
+            throw new ApiException(String.format("Failed : Response error code : %s, message: %s",
+                    predictionResponse.getCode(), predictionResponse.getMessage()));
         }
         return predictionResponse.getData();
     }

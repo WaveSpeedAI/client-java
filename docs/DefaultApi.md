@@ -4,13 +4,13 @@ All URIs are relative to *https://api.wavespeed.ai/api/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createPrediction**](DefaultApi.md#createPrediction) | **POST** /{model_id} | Generate an image using the specified model |
-| [**getPrediction**](DefaultApi.md#getPrediction) | **GET** /predictions/{predictionId}/result | Retrieve the result of a prediction |
+| [**createPredictionData**](DefaultApi.md#createPredictionData) | **POST** /{model_id} | Generate an image using the specified model |
+| [**getPredictionData**](DefaultApi.md#getPredictionData) | **GET** /predictions/{predictionId}/result | Retrieve the result of a prediction |
 
 
-<a id="createPrediction"></a>
-# **createPrediction**
-> PredictionResponse createPrediction(modelId, requestBody, webhook)
+<a id="createPredictionData"></a>
+# **createPredictionData**
+> PredictionResponse createPredictionData(modelId, requestBody, webhook)
 
 Generate an image using the specified model
 
@@ -40,10 +40,10 @@ public class Example {
     Map<String, Object> requestBody = null; // Map<String, Object> | 
     String webhook = "webhook_example"; // String | The URL to which the webhook will be sent
     try {
-      PredictionResponse result = apiInstance.createPrediction(modelId, requestBody, webhook);
+      PredictionResponse result = apiInstance.createPredictionData(modelId, requestBody, webhook);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#createPrediction");
+      System.err.println("Exception when calling DefaultApi#createPredictionData");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -82,9 +82,9 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **500** | Internal Server Error |  -  |
 
-<a id="getPrediction"></a>
-# **getPrediction**
-> PredictionResponse getPrediction(predictionId)
+<a id="getPredictionData"></a>
+# **getPredictionData**
+> PredictionResponse getPredictionData(predictionId)
 
 Retrieve the result of a prediction
 
@@ -112,10 +112,10 @@ public class Example {
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String predictionId = "predictionId_example"; // String | The ID of the prediction request
     try {
-      PredictionResponse result = apiInstance.getPrediction(predictionId);
+      PredictionResponse result = apiInstance.getPredictionData(predictionId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#getPrediction");
+      System.err.println("Exception when calling DefaultApi#getPredictionData");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

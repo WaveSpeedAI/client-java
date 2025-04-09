@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        WaveSpeed waveSpeed = new WaveSpeed("c3ce635f0009ee33f6e243bf0e8b122dadef3dd8c20b7caa0cc2e3ae7af91ba7");
+        WaveSpeed waveSpeed = new WaveSpeed();
         Map<String, Object> input = new HashMap<String, Object>();
         input.put("enable_base64_output", true);
         input.put("enable_safety_checker", true);
@@ -29,7 +29,7 @@ public class Main {
             while (prediction2.getStatus() != Prediction.StatusEnum.COMPLETED && prediction2.getStatus() != Prediction.StatusEnum.FAILED) {
                 Thread.sleep(2000);
                 System.out.println("query status: " + prediction2.getStatus());
-                prediction2 = waveSpeed.get(prediction2.getId());
+                prediction2 = waveSpeed.getPrediction(prediction2.getId());
             }
             System.out.println(prediction2);
         } catch (ApiException e) {

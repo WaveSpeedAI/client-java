@@ -27,9 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ai.wavespeed.openapi.client.model.CreatePrediction400Response;
-import ai.wavespeed.openapi.client.model.CreatePrediction401Response;
-import ai.wavespeed.openapi.client.model.CreatePrediction500Response;
+import ai.wavespeed.openapi.client.model.CreatePredictionData400Response;
+import ai.wavespeed.openapi.client.model.CreatePredictionData401Response;
+import ai.wavespeed.openapi.client.model.CreatePredictionData500Response;
 import ai.wavespeed.openapi.client.model.PredictionResponse;
 
 import java.lang.reflect.Type;
@@ -76,7 +76,7 @@ public class DefaultApi {
     }
 
     /**
-     * Build call for createPrediction
+     * Build call for createPredictionData
      * @param modelId The ID of the model to use for image generation (required)
      * @param requestBody  (required)
      * @param webhook The URL to which the webhook will be sent (optional)
@@ -93,7 +93,7 @@ public class DefaultApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPredictionCall(String modelId, Map<String, Object> requestBody, String webhook, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createPredictionDataCall(String modelId, Map<String, Object> requestBody, String webhook, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -144,18 +144,18 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createPredictionValidateBeforeCall(String modelId, Map<String, Object> requestBody, String webhook, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createPredictionDataValidateBeforeCall(String modelId, Map<String, Object> requestBody, String webhook, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'modelId' is set
         if (modelId == null) {
-            throw new ApiException("Missing the required parameter 'modelId' when calling createPrediction(Async)");
+            throw new ApiException("Missing the required parameter 'modelId' when calling createPredictionData(Async)");
         }
 
         // verify the required parameter 'requestBody' is set
         if (requestBody == null) {
-            throw new ApiException("Missing the required parameter 'requestBody' when calling createPrediction(Async)");
+            throw new ApiException("Missing the required parameter 'requestBody' when calling createPredictionData(Async)");
         }
 
-        return createPredictionCall(modelId, requestBody, webhook, _callback);
+        return createPredictionDataCall(modelId, requestBody, webhook, _callback);
 
     }
 
@@ -177,8 +177,8 @@ public class DefaultApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public PredictionResponse createPrediction(String modelId, Map<String, Object> requestBody, String webhook) throws ApiException {
-        ApiResponse<PredictionResponse> localVarResp = createPredictionWithHttpInfo(modelId, requestBody, webhook);
+    public PredictionResponse createPredictionData(String modelId, Map<String, Object> requestBody, String webhook) throws ApiException {
+        ApiResponse<PredictionResponse> localVarResp = createPredictionDataWithHttpInfo(modelId, requestBody, webhook);
         return localVarResp.getData();
     }
 
@@ -200,8 +200,8 @@ public class DefaultApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PredictionResponse> createPredictionWithHttpInfo(String modelId, Map<String, Object> requestBody, String webhook) throws ApiException {
-        okhttp3.Call localVarCall = createPredictionValidateBeforeCall(modelId, requestBody, webhook, null);
+    public ApiResponse<PredictionResponse> createPredictionDataWithHttpInfo(String modelId, Map<String, Object> requestBody, String webhook) throws ApiException {
+        okhttp3.Call localVarCall = createPredictionDataValidateBeforeCall(modelId, requestBody, webhook, null);
         Type localVarReturnType = new TypeToken<PredictionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -225,15 +225,15 @@ public class DefaultApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createPredictionAsync(String modelId, Map<String, Object> requestBody, String webhook, final ApiCallback<PredictionResponse> _callback) throws ApiException {
+    public okhttp3.Call createPredictionDataAsync(String modelId, Map<String, Object> requestBody, String webhook, final ApiCallback<PredictionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createPredictionValidateBeforeCall(modelId, requestBody, webhook, _callback);
+        okhttp3.Call localVarCall = createPredictionDataValidateBeforeCall(modelId, requestBody, webhook, _callback);
         Type localVarReturnType = new TypeToken<PredictionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for getPrediction
+     * Build call for getPredictionData
      * @param predictionId The ID of the prediction request (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -248,7 +248,7 @@ public class DefaultApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPredictionCall(String predictionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPredictionDataCall(String predictionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -294,13 +294,13 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPredictionValidateBeforeCall(String predictionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPredictionDataValidateBeforeCall(String predictionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'predictionId' is set
         if (predictionId == null) {
-            throw new ApiException("Missing the required parameter 'predictionId' when calling getPrediction(Async)");
+            throw new ApiException("Missing the required parameter 'predictionId' when calling getPredictionData(Async)");
         }
 
-        return getPredictionCall(predictionId, _callback);
+        return getPredictionDataCall(predictionId, _callback);
 
     }
 
@@ -320,8 +320,8 @@ public class DefaultApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public PredictionResponse getPrediction(String predictionId) throws ApiException {
-        ApiResponse<PredictionResponse> localVarResp = getPredictionWithHttpInfo(predictionId);
+    public PredictionResponse getPredictionData(String predictionId) throws ApiException {
+        ApiResponse<PredictionResponse> localVarResp = getPredictionDataWithHttpInfo(predictionId);
         return localVarResp.getData();
     }
 
@@ -341,8 +341,8 @@ public class DefaultApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PredictionResponse> getPredictionWithHttpInfo(String predictionId) throws ApiException {
-        okhttp3.Call localVarCall = getPredictionValidateBeforeCall(predictionId, null);
+    public ApiResponse<PredictionResponse> getPredictionDataWithHttpInfo(String predictionId) throws ApiException {
+        okhttp3.Call localVarCall = getPredictionDataValidateBeforeCall(predictionId, null);
         Type localVarReturnType = new TypeToken<PredictionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -364,9 +364,9 @@ public class DefaultApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPredictionAsync(String predictionId, final ApiCallback<PredictionResponse> _callback) throws ApiException {
+    public okhttp3.Call getPredictionDataAsync(String predictionId, final ApiCallback<PredictionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPredictionValidateBeforeCall(predictionId, _callback);
+        okhttp3.Call localVarCall = getPredictionDataValidateBeforeCall(predictionId, _callback);
         Type localVarReturnType = new TypeToken<PredictionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

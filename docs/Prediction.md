@@ -13,7 +13,7 @@
 |**urls** | [**PredictionUrls**](PredictionUrls.md) |  |  [optional] |
 |**hasNsfwContents** | **List&lt;Boolean&gt;** |  |  [optional] |
 |**status** | [**StatusEnum**](#StatusEnum) | Status of the task |  |
-|**createdAt** | **OffsetDateTime** | ISO timestamp of when the request was created |  [optional] |
+|**createdAt** | **OffsetDateTime** | Timestamp of when the request was created |  [optional] |
 |**error** | **String** | Error message (empty if no error occurred) |  [optional] |
 |**executionTime** | **BigDecimal** | model execution time |  [optional] |
 

@@ -93,10 +93,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter);
         gsonBuilder.registerTypeAdapter(LocalDate.class, localDateTypeAdapter);
         gsonBuilder.registerTypeAdapter(byte[].class, byteArrayAdapter);
-        gsonBuilder.registerTypeAdapterFactory(new ai.wavespeed.openapi.client.model.CreatePrediction400Response.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new ai.wavespeed.openapi.client.model.CreatePrediction400ResponseData.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new ai.wavespeed.openapi.client.model.CreatePrediction401Response.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new ai.wavespeed.openapi.client.model.CreatePrediction500Response.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ai.wavespeed.openapi.client.model.CreatePredictionData400Response.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ai.wavespeed.openapi.client.model.CreatePredictionData400ResponseData.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ai.wavespeed.openapi.client.model.CreatePredictionData401Response.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ai.wavespeed.openapi.client.model.CreatePredictionData500Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.wavespeed.openapi.client.model.Prediction.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.wavespeed.openapi.client.model.PredictionResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.wavespeed.openapi.client.model.PredictionUrls.CustomTypeAdapterFactory());

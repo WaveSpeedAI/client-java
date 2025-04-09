@@ -16,7 +16,7 @@ package ai.wavespeed.openapi.client;
 import java.util.Collection;
 import java.util.Iterator;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-07T16:39:33.625926313+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-09T10:23:04.859512502+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).

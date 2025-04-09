@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cloud.liblibai.demo</groupId>
-    <artifactId>wavespeed</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <groupId>ai.wavespeed.maven</groupId>
+    <artifactId>wavespeed-client</artifactId>
+    <version>0.0.1</version>
 
     <properties>
         <maven.compiler.source>23</maven.compiler.source>

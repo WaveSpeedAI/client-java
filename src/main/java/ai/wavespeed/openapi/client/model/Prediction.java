@@ -54,7 +54,7 @@ import ai.wavespeed.openapi.client.JSON;
 /**
  * Prediction
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-07T16:39:33.625926313+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-09T10:23:04.859512502+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
 public class Prediction {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -296,7 +296,7 @@ public class Prediction {
   }
 
   /**
-   * ISO timestamp of when the request was created
+   * Timestamp of when the request was created
    * @return createdAt
    */
   @javax.annotation.Nullable

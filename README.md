@@ -110,7 +110,7 @@ public class Main {
       while (prediction2.getStatus() != Prediction.StatusEnum.COMPLETED && prediction2.getStatus() != Prediction.StatusEnum.FAILED) {
         Thread.sleep(2000);
         System.out.println("query status: " + prediction2.getStatus());
-        prediction2 = waveSpeed.get(prediction2.getId());
+        prediction2 = waveSpeed.getPrediction(prediction2.getId());
       }
       System.out.println(prediction2);
     } catch (ApiException e) {

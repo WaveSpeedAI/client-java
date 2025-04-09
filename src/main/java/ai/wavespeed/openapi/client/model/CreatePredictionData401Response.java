@@ -14,7 +14,7 @@
 package ai.wavespeed.openapi.client.model;
 
 import java.util.Objects;
-import ai.wavespeed.openapi.client.model.CreatePrediction400ResponseData;
+import ai.wavespeed.openapi.client.model.CreatePredictionData400ResponseData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,10 +47,10 @@ import java.util.Set;
 import ai.wavespeed.openapi.client.JSON;
 
 /**
- * CreatePrediction401Response
+ * CreatePredictionData401Response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-07T16:39:33.625926313+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
-public class CreatePrediction401Response {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-09T10:23:04.859512502+08:00[Asia/Shanghai]", comments = "Generator version: 7.10.0")
+public class CreatePredictionData401Response {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
   @javax.annotation.Nullable
@@ -64,12 +64,12 @@ public class CreatePrediction401Response {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nullable
-  private CreatePrediction400ResponseData data;
+  private CreatePredictionData400ResponseData data;
 
-  public CreatePrediction401Response() {
+  public CreatePredictionData401Response() {
   }
 
-  public CreatePrediction401Response code(@javax.annotation.Nullable Integer code) {
+  public CreatePredictionData401Response code(@javax.annotation.Nullable Integer code) {
     this.code = code;
     return this;
   }
@@ -88,7 +88,7 @@ public class CreatePrediction401Response {
   }
 
 
-  public CreatePrediction401Response message(@javax.annotation.Nullable String message) {
+  public CreatePredictionData401Response message(@javax.annotation.Nullable String message) {
     this.message = message;
     return this;
   }
@@ -107,7 +107,7 @@ public class CreatePrediction401Response {
   }
 
 
-  public CreatePrediction401Response data(@javax.annotation.Nullable CreatePrediction400ResponseData data) {
+  public CreatePredictionData401Response data(@javax.annotation.Nullable CreatePredictionData400ResponseData data) {
     this.data = data;
     return this;
   }
@@ -117,11 +117,11 @@ public class CreatePrediction401Response {
    * @return data
    */
   @javax.annotation.Nullable
-  public CreatePrediction400ResponseData getData() {
+  public CreatePredictionData400ResponseData getData() {
     return data;
   }
 
-  public void setData(@javax.annotation.Nullable CreatePrediction400ResponseData data) {
+  public void setData(@javax.annotation.Nullable CreatePredictionData400ResponseData data) {
     this.data = data;
   }
 
@@ -135,10 +135,10 @@ public class CreatePrediction401Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreatePrediction401Response createPrediction401Response = (CreatePrediction401Response) o;
-    return Objects.equals(this.code, createPrediction401Response.code) &&
-        Objects.equals(this.message, createPrediction401Response.message) &&
-        Objects.equals(this.data, createPrediction401Response.data);
+    CreatePredictionData401Response createPredictionData401Response = (CreatePredictionData401Response) o;
+    return Objects.equals(this.code, createPredictionData401Response.code) &&
+        Objects.equals(this.message, createPredictionData401Response.message) &&
+        Objects.equals(this.data, createPredictionData401Response.data);
   }
 
   @Override
@@ -149,7 +149,7 @@ public class CreatePrediction401Response {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreatePrediction401Response {\n");
+    sb.append("class CreatePredictionData401Response {\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
@@ -187,20 +187,20 @@ public class CreatePrediction401Response {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to CreatePrediction401Response
+   * @throws IOException if the JSON Element is invalid with respect to CreatePredictionData401Response
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!CreatePrediction401Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreatePrediction401Response is not found in the empty JSON string", CreatePrediction401Response.openapiRequiredFields.toString()));
+        if (!CreatePredictionData401Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CreatePredictionData401Response is not found in the empty JSON string", CreatePredictionData401Response.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!CreatePrediction401Response.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreatePrediction401Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!CreatePredictionData401Response.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreatePredictionData401Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -209,7 +209,7 @@ public class CreatePrediction401Response {
       }
       // validate the optional field `data`
       if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-        CreatePrediction400ResponseData.validateJsonElement(jsonObj.get("data"));
+        CreatePredictionData400ResponseData.validateJsonElement(jsonObj.get("data"));
       }
   }
 
@@ -217,22 +217,22 @@ public class CreatePrediction401Response {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreatePrediction401Response.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreatePrediction401Response' and its subtypes
+       if (!CreatePredictionData401Response.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CreatePredictionData401Response' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreatePrediction401Response> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreatePrediction401Response.class));
+       final TypeAdapter<CreatePredictionData401Response> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CreatePredictionData401Response.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CreatePrediction401Response>() {
+       return (TypeAdapter<T>) new TypeAdapter<CreatePredictionData401Response>() {
            @Override
-           public void write(JsonWriter out, CreatePrediction401Response value) throws IOException {
+           public void write(JsonWriter out, CreatePredictionData401Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public CreatePrediction401Response read(JsonReader in) throws IOException {
+           public CreatePredictionData401Response read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -243,18 +243,18 @@ public class CreatePrediction401Response {
   }
 
   /**
-   * Create an instance of CreatePrediction401Response given an JSON string
+   * Create an instance of CreatePredictionData401Response given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CreatePrediction401Response
-   * @throws IOException if the JSON string is invalid with respect to CreatePrediction401Response
+   * @return An instance of CreatePredictionData401Response
+   * @throws IOException if the JSON string is invalid with respect to CreatePredictionData401Response
    */
-  public static CreatePrediction401Response fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreatePrediction401Response.class);
+  public static CreatePredictionData401Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreatePredictionData401Response.class);
   }
 
   /**
-   * Convert an instance of CreatePrediction401Response to an JSON string
+   * Convert an instance of CreatePredictionData401Response to an JSON string
    *
    * @return JSON string
    */
